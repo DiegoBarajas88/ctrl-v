@@ -99,6 +99,26 @@
       .mock-scene.active {
         display: flex;
       }
+
+      .slack-selected {
+        background-color: rgba(2, 132, 199, 0.2);
+        color: #0369a1;
+      }
+
+      .wa-selected {
+        background-color: rgba(0, 168, 132, 0.25);
+        color: #007a5f;
+      }
+
+      .gmail-selected {
+        background-color: rgba(11, 87, 208, 0.2);
+        color: #0b57d0;
+      }
+
+      .btn-click-effect {
+        transform: scale(0.96);
+        background-color: #0842a0;
+      }
     </style>
   </head>
 
@@ -171,130 +191,157 @@
               </div>
 
               <div class="relative h-[500px]">
-                <div id="scene-slack" class="mock-scene active h-full">
-                <div class="hidden w-64 border-r border-gray-200 bg-gray-50 p-4 dark:border-white/5 dark:bg-[#1A1A2E] sm:block">
-                  <div class="space-y-4 opacity-50">
-                    <div class="h-4 w-3/4 rounded bg-gray-200 dark:bg-white/10"></div>
-                    <div class="h-4 w-1/2 rounded bg-gray-200 dark:bg-white/10"></div>
-                    <div class="h-4 w-2/3 rounded bg-gray-200 dark:bg-white/10"></div>
-                  </div>
-                </div>
+                <div id="scene-slack" class="mock-scene active h-full w-full flex-col bg-white dark:bg-[#0F0F1E]">
+                  <div class="flex h-full min-h-0">
+                    <div class="hidden w-[210px] shrink-0 bg-[#3F0E40] p-3 sm:block">
+                      <div class="mb-4 flex items-center gap-2">
+                        <div class="grid h-7 w-7 place-items-center rounded-md bg-white/20 text-xs font-bold text-white">A</div>
+                        <div class="text-xs text-white/80">Acme Corp</div>
+                      </div>
+                      <div class="mb-3 rounded-md bg-white/10 px-2 py-1.5 text-xs text-white/80"># general</div>
+                      <div class="space-y-2 opacity-70">
+                        <div class="h-3 rounded bg-white/10"></div>
+                        <div class="h-3 w-4/5 rounded bg-white/10"></div>
+                        <div class="h-3 w-3/5 rounded bg-white/10"></div>
+                      </div>
+                    </div>
 
-                <div class="relative flex-1 bg-white p-6 dark:bg-[#0F0F1E]">
-                  <div class="space-y-6">
-                    <div class="flex gap-4">
-                      <div class="h-10 w-10 shrink-0 rounded-lg bg-emerald-500"></div>
-                      <div class="space-y-1">
-                        <div class="flex items-baseline gap-2">
-                          <span class="text-sm font-bold">Sarah Chen</span>
-                          <span class="text-xs text-muted-light dark:text-muted-dark">10:42 AM</span>
+                    <div class="flex min-w-0 flex-1 flex-col">
+                      <div class="border-b border-gray-200 px-4 py-2 text-sm font-bold text-[#1e293b] dark:border-white/10 dark:text-white"># general</div>
+                      <div class="flex-1 space-y-4 overflow-hidden p-4">
+                        <div class="flex gap-2.5">
+                          <div class="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-emerald-500 text-xs font-bold text-white">S</div>
+                          <div>
+                            <div class="flex items-baseline gap-2">
+                              <span class="text-[13px] font-bold text-[#1e293b] dark:text-white">Sarah Chen</span>
+                              <span class="text-[10px] text-[#64748b]">10:42 AM</span>
+                            </div>
+                            <p class="text-[13px] text-[#1e293b]/90 dark:text-gray-200">We just got a high-priority ticket from the US client.</p>
+                          </div>
                         </div>
-                        <p class="text-sm text-text-light dark:text-gray-300">Can someone translate the summary for our Madrid office?</p>
-                      </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                      <div class="h-10 w-10 shrink-0 rounded-lg bg-orange-500"></div>
-                      <div class="space-y-1">
-                        <div class="flex items-baseline gap-2">
-                          <span class="text-sm font-bold">Mike Johnson</span>
-                          <span class="text-xs text-muted-light dark:text-muted-dark">10:43 AM</span>
+                        <div class="flex gap-2.5">
+                          <div class="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-orange-400 text-xs font-bold text-white">M</div>
+                          <div>
+                            <div class="flex items-baseline gap-2">
+                              <span class="text-[13px] font-bold text-[#1e293b] dark:text-white">Mike Johnson</span>
+                              <span class="text-[10px] text-[#64748b]">10:43 AM</span>
+                            </div>
+                            <p class="text-[13px] text-[#1e293b]/90 dark:text-gray-200">Looking into the server logs right now.</p>
+                          </div>
                         </div>
-                        <p class="text-sm text-text-light dark:text-gray-300">Sure, one sec.</p>
-                      </div>
-                    </div>
-
-                    <div class="absolute left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border border-gray-200 bg-white p-4 shadow-2xl backdrop-blur-xl transition-all hover:scale-[1.02] dark:border-white/10 dark:bg-[#1E1E38]/90">
-                      <div class="mb-3 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                          <span class="flex h-6 w-6 items-center justify-center rounded bg-primary text-xs text-white">
-                            <span class="material-icons text-[14px]">translate</span>
-                          </span>
-                          <span class="text-sm font-semibold">Translate Selection</span>
+                        <div id="slack-you-msg" class="hidden gap-2.5 opacity-0 transition-opacity duration-300">
+                          <div class="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-primary text-xs font-bold text-white">Y</div>
+                          <div>
+                            <div class="flex items-baseline gap-2">
+                              <span class="text-[13px] font-bold text-[#1e293b] dark:text-white">You</span>
+                              <span class="text-[10px] text-[#64748b]">10:44 AM</span>
+                            </div>
+                            <p id="slack-msg" class="text-[13px] text-[#1e293b]/90 dark:text-gray-200"></p>
+                          </div>
                         </div>
-                        <span class="rounded bg-gray-100 px-2 py-0.5 font-mono text-xs text-muted-light dark:bg-white/10 dark:text-muted-dark">CMD + SHIFT + T</span>
                       </div>
-
-                      <div class="mb-3 rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-white/5 dark:bg-black/20">
-                        <p class="text-sm text-muted-light dark:text-gray-400">Can someone translate the summary for our Madrid office?</p>
-                      </div>
-
-                      <div class="rounded-lg border border-blue-100 bg-blue-50 p-3 dark:border-blue-500/20 dark:bg-blue-900/20">
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Puede alguien traducir el resumen para nuestra oficina de Madrid?</p>
-                      </div>
-
-                      <div class="mt-3 flex justify-end gap-2">
-                        <button class="rounded px-2 py-1 text-xs font-medium hover:bg-gray-100 dark:hover:bg-white/10">Copy</button>
-                        <button class="rounded bg-primary px-2 py-1 text-xs font-medium text-white hover:bg-primary-hover">Insert</button>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-                <div id="scene-whatsapp" class="mock-scene h-full">
-                  <div class="hidden w-64 border-r border-gray-200 bg-[#f0f2f5] p-4 dark:border-white/5 dark:bg-[#1A1A2E] sm:block">
-                    <div class="space-y-3 opacity-60">
-                      <div class="h-10 rounded-xl bg-[#d9fdd3]"></div>
-                      <div class="h-10 rounded-xl bg-white dark:bg-white/10"></div>
-                      <div class="h-10 rounded-xl bg-white dark:bg-white/10"></div>
-                    </div>
-                  </div>
-                  <div class="relative flex-1 bg-[#efeae2] p-6 dark:bg-[#0F0F1E]">
-                    <div class="space-y-4">
-                      <div class="ml-auto max-w-md rounded-2xl bg-[#dcf8c6] p-3 text-sm text-[#202c33]">
-                        Can someone translate the summary for our Madrid office?
-                      </div>
-                      <div class="max-w-md rounded-2xl bg-white p-3 text-sm text-[#202c33] dark:bg-[#1E1E38] dark:text-gray-200">
-                        Sure, send it here.
-                      </div>
-                    </div>
-
-                    <div class="absolute left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border border-gray-200 bg-white p-4 shadow-2xl backdrop-blur-xl transition-all hover:scale-[1.02] dark:border-white/10 dark:bg-[#1E1E38]/90">
-                      <div class="mb-3 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                          <span class="flex h-6 w-6 items-center justify-center rounded bg-primary text-xs text-white">
-                            <span class="material-icons text-[14px]">translate</span>
-                          </span>
-                          <span class="text-sm font-semibold">Translate Selection</span>
+                      <div class="border-t border-gray-200 px-4 py-3 dark:border-white/10">
+                        <div class="relative flex items-center rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 dark:border-white/20 dark:bg-white/5">
+                          <div class="flex-1 text-[13px] text-[#1e293b] dark:text-gray-100">
+                            <span id="slack-input-text" class="rounded px-0.5"></span>
+                            <span id="slack-input-cursor" class="ml-px inline-block h-[14px] w-[1.5px] animate-pulse bg-[#1e293b]/60 dark:bg-gray-200"></span>
+                          </div>
+                          <div id="slack-shortcut-badge" class="flex scale-95 gap-0.5 opacity-0 transition-all duration-300">
+                            <span class="rounded border border-primary/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-primary">⌘</span>
+                            <span class="rounded border border-primary/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-primary">⇧</span>
+                            <span class="rounded border border-primary/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-primary">V</span>
+                          </div>
                         </div>
-                        <span class="rounded bg-gray-100 px-2 py-0.5 font-mono text-xs text-muted-light dark:bg-white/10 dark:text-muted-dark">CMD + SHIFT + T</span>
-                      </div>
-                      <div class="mb-3 rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-white/5 dark:bg-black/20">
-                        <p class="text-sm text-muted-light dark:text-gray-400">Can someone translate the summary for our Madrid office?</p>
-                      </div>
-                      <div class="rounded-lg border border-blue-100 bg-blue-50 p-3 dark:border-blue-500/20 dark:bg-blue-900/20">
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Puede alguien traducir el resumen para nuestra oficina de Madrid?</p>
-                      </div>
-                      <div class="mt-3 flex justify-end gap-2">
-                        <button class="rounded px-2 py-1 text-xs font-medium hover:bg-gray-100 dark:hover:bg-white/10">Copy</button>
-                        <button class="rounded bg-primary px-2 py-1 text-xs font-medium text-white hover:bg-primary-hover">Insert</button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div id="scene-email" class="mock-scene h-full">
-                  <div class="hidden w-64 border-r border-gray-200 bg-[#f5f7fb] p-4 dark:border-white/5 dark:bg-[#1A1A2E] sm:block">
-                    <div class="mb-4 h-10 rounded-xl bg-[#c2e7ff]"></div>
-                    <div class="space-y-3 opacity-60">
-                      <div class="h-8 rounded-lg bg-[#d3e3fd]"></div>
-                      <div class="h-8 rounded-lg bg-white dark:bg-white/10"></div>
-                      <div class="h-8 rounded-lg bg-white dark:bg-white/10"></div>
+                <div id="scene-whatsapp" class="mock-scene h-full w-full flex-col bg-[#efeae2]">
+                  <div class="flex h-full min-h-0">
+                    <div class="hidden w-[260px] shrink-0 border-r border-gray-200 bg-white sm:block">
+                      <div class="h-14 bg-[#f0f2f5]"></div>
+                      <div class="space-y-1 p-3">
+                        <div class="rounded-lg bg-gray-100 p-2 text-xs">Neha</div>
+                        <div class="rounded-lg p-2 text-xs text-gray-500">Rahul Engineering</div>
+                        <div class="rounded-lg p-2 text-xs text-gray-500">Design Team</div>
+                      </div>
+                    </div>
+                    <div class="flex min-w-0 flex-1 flex-col">
+                      <div class="flex h-14 items-center justify-between border-b border-gray-200 bg-[#f0f2f5] px-4">
+                        <div class="text-sm font-semibold text-[#111b21]">Neha</div>
+                      </div>
+                      <div id="wa-chat-messages" class="flex-1 space-y-2 overflow-hidden p-4">
+                        <div class="flex justify-start">
+                          <div class="max-w-[75%] rounded-lg rounded-tl-sm bg-white px-3 py-2 text-[14px] text-[#111b21] shadow-sm">Hey, what time are you reaching the office?</div>
+                        </div>
+                        <div class="flex justify-end">
+                          <div class="max-w-[75%] rounded-lg rounded-tr-sm bg-[#d9fdd3] px-3 py-2 text-[14px] text-[#111b21] shadow-sm">I just left the house.</div>
+                        </div>
+                        <div class="flex justify-start">
+                          <div class="max-w-[75%] rounded-lg rounded-tl-sm bg-white px-3 py-2 text-[14px] text-[#111b21] shadow-sm">Okay, let me know if you need me for standup.</div>
+                        </div>
+                        <div id="wa-sent-msg" class="hidden justify-end opacity-0 transition-opacity duration-300">
+                          <div class="max-w-[75%] rounded-lg rounded-tr-sm bg-[#d9fdd3] px-3 py-2 text-[14px] text-[#111b21] shadow-sm">
+                            <p id="wa-msg-content"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-3 bg-[#f0f2f5] px-4 py-3">
+                        <div class="text-[#54656f]">☺</div>
+                        <div class="relative flex-1 rounded-lg bg-white px-3 py-2">
+                          <span id="wa-input-text" class="text-[15px] text-[#111b21]"></span>
+                          <span id="wa-input-cursor" class="ml-px inline-block h-[18px] w-[1.5px] animate-pulse bg-[#667781]"></span>
+                          <div id="wa-shortcut-badge" class="absolute right-3 top-2.5 flex scale-95 gap-0.5 opacity-0 transition-all duration-300">
+                            <span class="rounded border border-[#00a884]/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#00a884]">⌘</span>
+                            <span class="rounded border border-[#00a884]/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#00a884]">⇧</span>
+                            <span class="rounded border border-[#00a884]/20 bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#00a884]">V</span>
+                          </div>
+                        </div>
+                        <div id="wa-icon-mic" class="text-[#54656f]">🎤</div>
+                        <div id="wa-icon-send" class="hidden text-[#54656f]">➤</div>
+                      </div>
                     </div>
                   </div>
-                  <div class="relative flex-1 bg-white p-6 dark:bg-[#0F0F1E]">
-                    <div class="space-y-3 opacity-80">
-                      <div class="h-10 rounded-xl bg-[#eaf1fb] dark:bg-white/10"></div>
-                      <div class="h-12 rounded-xl border border-gray-200 bg-white p-3 text-sm dark:border-white/10 dark:bg-[#1E1E38]">Q4 Report Summary</div>
-                      <div class="h-28 rounded-xl border border-gray-200 bg-white p-3 text-sm dark:border-white/10 dark:bg-[#1E1E38]">Adjunto el resumen final para Madrid...</div>
+                </div>
+
+                <div id="scene-email" class="mock-scene h-full w-full flex-col bg-[#f6f8fc]">
+                  <div class="flex h-full min-h-0">
+                    <div class="hidden w-[240px] shrink-0 bg-[#f6f8fc] p-3 sm:block">
+                      <button class="mb-4 flex w-full items-center gap-2 rounded-2xl bg-[#c2e7ff] px-4 py-3 text-sm">Redactar</button>
+                      <div class="space-y-1 text-sm">
+                        <div class="rounded-r-full bg-[#d3e3fd] px-4 py-2 font-bold">Recibidos</div>
+                        <div class="rounded-r-full px-4 py-2 text-[#444746]">Destacados</div>
+                        <div class="rounded-r-full px-4 py-2 text-[#444746]">Enviados</div>
+                      </div>
                     </div>
-                    <div class="absolute bottom-8 right-8 w-full max-w-xs rounded-xl border border-gray-200 bg-white p-3 shadow-xl dark:border-white/10 dark:bg-[#1E1E38]">
-                      <p class="mb-2 text-xs font-semibold text-muted-light dark:text-muted-dark">Control-V suggested translation</p>
-                      <p class="text-sm">Attached is the final summary for our Madrid office.</p>
+                    <div class="flex min-w-0 flex-1 flex-col rounded-t-2xl border border-gray-200 bg-white">
+                      <div class="h-12 border-b border-gray-100"></div>
+                      <div class="flex-1 space-y-1 overflow-hidden">
+                        <div class="flex items-center border-b border-gray-100 bg-white px-4 py-2 text-sm"><span class="w-40 font-bold">Equipo de Diseño</span><span class="truncate font-bold">Nuevos mockups listos</span></div>
+                        <div class="flex items-center border-b border-gray-100 bg-[#f2f6fc] px-4 py-2 text-sm"><span class="w-40">Sarah Chen</span><span class="truncate">Actualización del proyecto</span></div>
+                        <div class="flex items-center border-b border-gray-100 bg-[#f2f6fc] px-4 py-2 text-sm"><span class="w-40">Recursos Humanos</span><span class="truncate">Recordatorio anual</span></div>
+                      </div>
                     </div>
                   </div>
+                  <div id="gmail-compose-box" class="absolute bottom-0 right-[4%] z-10 w-[92%] rounded-t-xl border border-gray-200 bg-white shadow-xl sm:w-[460px]">
+                    <div class="rounded-t-xl bg-[#f2f6fc] px-4 py-2.5 text-sm text-[#444746]">Mensaje nuevo</div>
+                    <div class="border-b border-gray-100 px-4 py-2 text-sm">Para: sarah.chen@company.com</div>
+                    <div class="border-b border-gray-100 px-4 py-2 text-sm">Asunto: Actualización importante del proyecto</div>
+                    <div class="relative min-h-[160px] p-4 text-sm">
+                      <span id="gmail-input-text" class="whitespace-pre-wrap rounded"></span>
+                      <span id="gmail-input-cursor" class="ml-px hidden h-[16px] w-[1.5px] animate-pulse bg-black"></span>
+                      <div id="gmail-shortcut-badge" class="pointer-events-none absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-1.5 rounded-lg border border-gray-200 bg-white p-2 opacity-0 transition-opacity duration-300">
+                        <span class="rounded border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-bold text-[#0b57d0]">⌘</span>
+                        <span class="rounded border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-bold text-[#0b57d0]">⇧</span>
+                        <span class="rounded border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-bold text-[#0b57d0]">V</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-50 px-4 py-3">
+                      <button id="gmail-send-btn" class="rounded-full bg-[#0b57d0] px-5 py-2 text-sm font-medium text-white">Enviar</button>
+                    </div>
+                  </div>
+                  <div id="gmail-toast" class="absolute bottom-6 left-6 z-20 translate-y-20 rounded bg-[#323232] px-6 py-3 text-sm text-white opacity-0 transition-all duration-300">Mensaje enviado.</div>
                 </div>
               </div>
             </div>
@@ -587,6 +634,7 @@
       const appTitle = document.getElementById("app-window-title");
       const appPrev = document.getElementById("app-prev");
       const appNext = document.getElementById("app-next");
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
       function activateTab(tab) {
         appTabs.forEach((item) => item.classList.remove("active"));
@@ -598,9 +646,7 @@
       }
 
       appTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          activateTab(tab);
-        });
+        tab.addEventListener("click", () => activateTab(tab));
       });
 
       function moveTab(direction) {
@@ -611,6 +657,169 @@
 
       if (appPrev) appPrev.addEventListener("click", () => moveTab(-1));
       if (appNext) appNext.addEventListener("click", () => moveTab(1));
+
+      async function typeText(element, text, speed = 70) {
+        element.textContent = "";
+        for (let i = 0; i < text.length; i += 1) {
+          element.textContent += text.charAt(i);
+          await sleep(speed + Math.random() * 40);
+        }
+      }
+
+      async function runSlackAnimation() {
+        const inputText = document.getElementById("slack-input-text");
+        const shortcutBadge = document.getElementById("slack-shortcut-badge");
+        const cursor = document.getElementById("slack-input-cursor");
+        const youMsg = document.getElementById("slack-you-msg");
+        const sentMsgText = document.getElementById("slack-msg");
+        if (!inputText || !shortcutBadge || !cursor || !youMsg || !sentMsgText) return;
+
+        const textES = "He encontrado el error en la base de datos. Ya estoy subiendo el parche.";
+        const textEN = "I found the error in the database. I am uploading the patch now.";
+
+        while (true) {
+          inputText.textContent = "";
+          inputText.classList.remove("slack-selected");
+          shortcutBadge.style.opacity = "0";
+          shortcutBadge.style.transform = "scale(0.95)";
+          cursor.style.display = "inline-block";
+          youMsg.style.opacity = "0";
+          await sleep(350);
+          youMsg.classList.add("hidden");
+          await sleep(900);
+          await typeText(inputText, textES, 50);
+          await sleep(700);
+          inputText.classList.add("slack-selected");
+          cursor.style.display = "none";
+          await sleep(700);
+          shortcutBadge.style.opacity = "1";
+          shortcutBadge.style.transform = "scale(1)";
+          await sleep(1000);
+          inputText.classList.remove("slack-selected");
+          inputText.textContent = textEN;
+          shortcutBadge.style.opacity = "0";
+          shortcutBadge.style.transform = "scale(0.95)";
+          cursor.style.display = "inline-block";
+          await sleep(900);
+          inputText.textContent = "";
+          await sleep(300);
+          sentMsgText.textContent = textEN;
+          youMsg.classList.remove("hidden");
+          youMsg.classList.add("flex");
+          void youMsg.offsetWidth;
+          youMsg.style.opacity = "1";
+          await sleep(3800);
+        }
+      }
+
+      async function runWhatsAppAnimation() {
+        const inputText = document.getElementById("wa-input-text");
+        const shortcutBadge = document.getElementById("wa-shortcut-badge");
+        const cursor = document.getElementById("wa-input-cursor");
+        const sentMsgContainer = document.getElementById("wa-sent-msg");
+        const sentMsgText = document.getElementById("wa-msg-content");
+        const iconMic = document.getElementById("wa-icon-mic");
+        const iconSend = document.getElementById("wa-icon-send");
+        const chatMessages = document.getElementById("wa-chat-messages");
+        if (!inputText || !shortcutBadge || !cursor || !sentMsgContainer || !sentMsgText || !iconMic || !iconSend || !chatMessages) return;
+
+        const textHindi = "हाँ, कृपया मेरी जगह ले लें। मुझे थोड़ी देर हो जाएगी।";
+        const textEnglish = "Yes, please cover for me. I'll be a little late.";
+
+        while (true) {
+          inputText.textContent = "";
+          inputText.classList.remove("wa-selected");
+          shortcutBadge.style.opacity = "0";
+          shortcutBadge.style.transform = "scale(0.95)";
+          cursor.style.display = "inline-block";
+          sentMsgContainer.style.opacity = "0";
+          iconMic.classList.remove("hidden");
+          iconSend.classList.add("hidden");
+          await sleep(400);
+          sentMsgContainer.classList.add("hidden");
+          await sleep(1200);
+          iconMic.classList.add("hidden");
+          iconSend.classList.remove("hidden");
+          await typeText(inputText, textHindi, 55);
+          await sleep(700);
+          inputText.classList.add("wa-selected");
+          cursor.style.display = "none";
+          await sleep(700);
+          shortcutBadge.style.opacity = "1";
+          shortcutBadge.style.transform = "scale(1)";
+          await sleep(1100);
+          inputText.classList.remove("wa-selected");
+          inputText.textContent = textEnglish;
+          shortcutBadge.style.opacity = "0";
+          shortcutBadge.style.transform = "scale(0.95)";
+          cursor.style.display = "inline-block";
+          await sleep(900);
+          inputText.textContent = "";
+          iconSend.classList.add("hidden");
+          iconMic.classList.remove("hidden");
+          await sleep(350);
+          sentMsgText.textContent = textEnglish;
+          sentMsgContainer.classList.remove("hidden");
+          sentMsgContainer.classList.add("flex");
+          void sentMsgContainer.offsetWidth;
+          sentMsgContainer.style.opacity = "1";
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          await sleep(4600);
+        }
+      }
+
+      async function runEmailAnimation() {
+        const composeBox = document.getElementById("gmail-compose-box");
+        const inputText = document.getElementById("gmail-input-text");
+        const shortcutBadge = document.getElementById("gmail-shortcut-badge");
+        const cursor = document.getElementById("gmail-input-cursor");
+        const sendBtn = document.getElementById("gmail-send-btn");
+        const toast = document.getElementById("gmail-toast");
+        if (!composeBox || !inputText || !shortcutBadge || !cursor || !sendBtn || !toast) return;
+
+        const textES = "Hola Sarah,\n\nTe envio la propuesta comercial actualizada para Madrid.\n\nSaludos,\nDiego";
+        const textEN = "Hi Sarah,\n\nI'm sending the updated commercial proposal for Madrid.\n\nBest regards,\nDiego";
+
+        while (true) {
+          inputText.textContent = "";
+          inputText.classList.remove("gmail-selected");
+          shortcutBadge.style.opacity = "0";
+          sendBtn.classList.remove("btn-click-effect");
+          toast.style.opacity = "0";
+          toast.style.transform = "translateY(20px)";
+          composeBox.style.transform = "translateY(0)";
+          composeBox.style.opacity = "1";
+          cursor.classList.remove("hidden");
+          await sleep(1300);
+          await typeText(inputText, textES, 40);
+          await sleep(900);
+          inputText.classList.add("gmail-selected");
+          cursor.classList.add("hidden");
+          await sleep(700);
+          shortcutBadge.style.opacity = "1";
+          await sleep(1000);
+          inputText.classList.remove("gmail-selected");
+          inputText.textContent = textEN;
+          shortcutBadge.style.opacity = "0";
+          cursor.classList.remove("hidden");
+          await sleep(1100);
+          cursor.classList.add("hidden");
+          sendBtn.classList.add("btn-click-effect");
+          await sleep(160);
+          sendBtn.classList.remove("btn-click-effect");
+          await sleep(260);
+          composeBox.style.transform = "translateY(100%)";
+          composeBox.style.opacity = "0";
+          await sleep(400);
+          toast.style.opacity = "1";
+          toast.style.transform = "translateY(0)";
+          await sleep(4300);
+        }
+      }
+
+      runSlackAnimation();
+      runWhatsAppAnimation();
+      runEmailAnimation();
     </script>
   </body>
 </html>
