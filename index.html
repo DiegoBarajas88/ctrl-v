@@ -124,6 +124,24 @@
         animation: marquee 24s linear infinite;
       }
 
+      .logo-cell {
+        border-radius: 0.95rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0.55rem;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+      }
+
+      .dark .logo-cell {
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(22, 22, 44, 0.9);
+        box-shadow: 0 8px 18px rgba(2, 6, 23, 0.45);
+      }
+
+      .dark .logo-img {
+        filter: saturate(1.04) contrast(1.05);
+      }
+
       @keyframes marquee {
         0% {
           transform: translateX(0);
@@ -425,7 +443,7 @@
           </div>
 
           <div class="grid gap-4 sm:grid-cols-2">
-            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+            <article class="flex flex-col rounded-3xl border border-transparent bg-primary/5 p-6 dark:border-white/10 dark:bg-surface-dark/70">
               <div class="mb-6 flex flex-1 items-center justify-center gap-5 px-2 py-6">
                 <div class="min-w-0 flex-1 rounded-lg border border-gray-200/60 bg-white/80 px-4 py-2.5 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
                   <div class="flex min-h-[1.25rem] items-center text-[14px] text-text-light dark:text-text-dark">
@@ -443,7 +461,7 @@
               <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Press CMD+SHIFT+V and the translation auto-pastes where you are typing. No extra steps.</p>
             </article>
 
-            <article class="relative flex h-[240px] flex-col overflow-hidden rounded-3xl bg-primary/5">
+            <article class="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-transparent bg-primary/5 dark:border-white/10 dark:bg-surface-dark/70">
               <div class="p-6 pb-2">
                 <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Works everywhere</h3>
                 <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Slack, WhatsApp, browser, email, docs and social apps.</p>
@@ -451,38 +469,38 @@
               <div class="relative flex flex-1 items-center overflow-hidden">
                 <div class="flex w-max gap-5" style="animation: marquee 30s linear infinite">
                   <div class="flex gap-5">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/slack.png" alt="Slack" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/notion.png" alt="Notion" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/gmail.png" alt="Gmail" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/figma.png" alt="Figma" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/whatsapp.png" alt="WhatsApp" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/discord.png" alt="Discord" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/chrome.png" alt="Chrome" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/safari.png" alt="Safari" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/linkedin.png" alt="LinkedIn" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/x.png" alt="X" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/teams.png" alt="Teams" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/cursor.png" alt="Cursor" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/lovable.png" alt="Lovable" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/obsidian.png" alt="Obsidian" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/claude.png" alt="Claude" class="h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/slack.png" alt="Slack" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/notion.png" alt="Notion" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/gmail.png" alt="Gmail" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/figma.png" alt="Figma" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/whatsapp.png" alt="WhatsApp" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/discord.png" alt="Discord" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/chrome.png" alt="Chrome" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/safari.png" alt="Safari" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/linkedin.png" alt="LinkedIn" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/x.png" alt="X" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/teams.png" alt="Teams" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/cursor.png" alt="Cursor" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/lovable.png" alt="Lovable" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/obsidian.png" alt="Obsidian" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/claude.png" alt="Claude" class="logo-img h-full w-full object-contain" /></div>
                   </div>
                   <div class="flex gap-5">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/slack.png" alt="Slack" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/notion.png" alt="Notion" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/gmail.png" alt="Gmail" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/figma.png" alt="Figma" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/whatsapp.png" alt="WhatsApp" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/discord.png" alt="Discord" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/chrome.png" alt="Chrome" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/safari.png" alt="Safari" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/linkedin.png" alt="LinkedIn" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/x.png" alt="X" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/teams.png" alt="Teams" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/cursor.png" alt="Cursor" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/lovable.png" alt="Lovable" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/obsidian.png" alt="Obsidian" class="h-full w-full object-contain" /></div>
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/claude.png" alt="Claude" class="h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/slack.png" alt="Slack" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/notion.png" alt="Notion" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/gmail.png" alt="Gmail" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/figma.png" alt="Figma" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/whatsapp.png" alt="WhatsApp" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/discord.png" alt="Discord" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/chrome.png" alt="Chrome" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/safari.png" alt="Safari" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/linkedin.png" alt="LinkedIn" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/x.png" alt="X" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/teams.png" alt="Teams" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/cursor.png" alt="Cursor" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/lovable.png" alt="Lovable" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/obsidian.png" alt="Obsidian" class="logo-img h-full w-full object-contain" /></div>
+                    <div class="logo-cell flex h-14 w-14 shrink-0 items-center justify-center"><img src="/icons/claude.png" alt="Claude" class="logo-img h-full w-full object-contain" /></div>
                   </div>
                 </div>
                 <div class="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-primary/5 to-transparent"></div>
@@ -492,7 +510,7 @@
           </div>
 
           <div class="mt-4 grid gap-4 sm:grid-cols-3">
-            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+            <article class="flex flex-col rounded-3xl border border-transparent bg-primary/5 p-6 dark:border-white/10 dark:bg-surface-dark/70">
               <div class="mb-4 flex flex-1 items-center">
                 <div class="flex flex-wrap gap-1.5">
                   <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Hello</span>
@@ -507,7 +525,7 @@
               <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Auto-detects the source language. You choose where it goes.</p>
             </article>
 
-            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+            <article class="flex flex-col rounded-3xl border border-transparent bg-primary/5 p-6 dark:border-white/10 dark:bg-surface-dark/70">
               <div class="mb-4 flex flex-1 items-center justify-center py-4">
                 <div class="w-full max-w-[240px] overflow-hidden rounded-xl border border-gray-200/60 bg-white/90 shadow-sm dark:border-white/10 dark:bg-white/10">
                   <div class="flex items-center gap-2 border-b border-gray-100 px-3 py-2 dark:border-white/10">
@@ -526,30 +544,30 @@
               <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Set it to professional, casual, or write your own style.</p>
             </article>
 
-            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+            <article class="flex flex-col rounded-3xl border border-transparent bg-primary/5 p-6 dark:border-white/10 dark:bg-surface-dark/70">
               <div class="mb-4 flex flex-1 flex-col items-center justify-center gap-6 py-6">
-                <div class="relative h-20 w-40">
-                  <div class="absolute left-0 top-1 flex h-14 w-14 items-center justify-center rounded-xl border border-gray-200/70 bg-white shadow-lg">
+                <div class="flex items-center justify-center gap-3">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-xl border border-gray-200/70 bg-white shadow-lg dark:border-white/10 dark:bg-surface-dark-lighter">
                     <img src="/icons/claude.png" alt="Claude" class="h-10 w-10 object-contain" />
                   </div>
-                  <div class="absolute left-[48px] top-4 text-primary">
-                    <span class="material-icons text-xl">sync_alt</span>
+                  <div class="flex h-14 w-14 items-center justify-center rounded-xl border border-gray-200/70 bg-white shadow-lg dark:border-white/10 dark:bg-surface-dark-lighter">
+                    <img src="/icons/chatgpt.svg" alt="ChatGPT" class="h-9 w-9 object-contain" />
                   </div>
-                  <div class="absolute right-0 bottom-1 grid h-14 w-20 place-items-center rounded-xl border border-gray-200/70 bg-white px-2 shadow-lg">
-                    <span class="text-xs font-semibold tracking-wide text-[#111827]">GPT</span>
-                    <span class="text-[10px] text-muted-light">API</span>
+                  <div class="flex h-14 w-14 items-center justify-center rounded-xl border border-gray-200/70 bg-white shadow-lg dark:border-white/10 dark:bg-surface-dark-lighter">
+                    <img src="/icons/gemini.svg" alt="Gemini" class="h-9 w-9 object-contain" />
                   </div>
                 </div>
-                <div class="flex items-center gap-2 rounded-full border border-gray-200/70 bg-white/90 px-3 py-1.5 text-[11px] text-muted-light shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-muted-dark">
-                  <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-                  Claude, GPT and OpenAI-compatible endpoints
+                <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] text-muted-light dark:text-muted-dark">
+                  <span class="rounded-full border border-gray-200/70 bg-white/90 px-2.5 py-1 dark:border-white/10 dark:bg-surface-dark-lighter">Claude</span>
+                  <span class="rounded-full border border-gray-200/70 bg-white/90 px-2.5 py-1 dark:border-white/10 dark:bg-surface-dark-lighter">ChatGPT</span>
+                  <span class="rounded-full border border-gray-200/70 bg-white/90 px-2.5 py-1 dark:border-white/10 dark:bg-surface-dark-lighter">Gemini</span>
                 </div>
                 <div class="w-full rounded-lg border border-gray-200/60 bg-white/80 px-3 py-1 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
                   <span class="font-mono text-[14px] tracking-tight text-muted-light/70 dark:text-muted-dark/70">sk-proj-4f8a...Tg3xW</span>
                 </div>
               </div>
               <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Your API key</h3>
-              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Connect your own Claude/GPT key. Your texts never touch our servers.</p>
+              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Connect your own Claude, ChatGPT or Gemini key. Your texts never touch our servers.</p>
             </article>
           </div>
         </div>
