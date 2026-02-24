@@ -119,6 +119,19 @@
         transform: scale(0.96);
         background-color: #0842a0;
       }
+
+      .bento-marquee {
+        animation: marquee 24s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-45%);
+        }
+      }
     </style>
   </head>
 
@@ -168,7 +181,8 @@
             <h1 class="text-5xl font-bold tracking-tight md:text-7xl">
               Translate anywhere
               <br />
-              <span class="font-serif text-slate-500 dark:text-slate-400">with Control-V</span>
+              <span class="font-serif text-2xl md:text-3xl text-slate-500 dark:text-slate-400">with</span>
+              <span class="font-serif text-5xl md:text-7xl text-slate-600 dark:text-slate-300">Control-V</span>
             </h1>
             <p class="mx-auto mt-6 max-w-2xl text-lg text-muted-light dark:text-muted-dark">
               Select text in Slack, Gmail, Notion, Docs, or any app. Press one shortcut and continue writing with zero context switching.
@@ -403,29 +417,105 @@
         </div>
       </section>
 
-      <section aria-label="Integrations" class="border-y border-gray-100 bg-white py-10 dark:border-white/5 dark:bg-black/20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="hide-scrollbar flex items-center justify-between gap-12 overflow-x-auto opacity-50 grayscale">
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">work_outline</span><span class="text-xl font-bold">Slack</span></div>
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">mail_outline</span><span class="text-xl font-bold">Gmail</span></div>
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">description</span><span class="text-xl font-bold">Notion</span></div>
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">code</span><span class="text-xl font-bold">VS Code</span></div>
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">brush</span><span class="text-xl font-bold">Figma</span></div>
-            <div class="flex flex-shrink-0 items-center gap-2"><span class="material-icons text-3xl">chat_bubble_outline</span><span class="text-xl font-bold">Discord</span></div>
+      <section id="features" class="border-y border-gray-100 bg-white/70 py-20 dark:border-white/5 dark:bg-black/20">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-14 text-center">
+            <h2 class="text-3xl font-medium tracking-tight text-text-light sm:text-4xl font-serif dark:text-text-dark">Everything you need</h2>
+            <p class="mt-3 text-base text-muted-light dark:text-muted-dark">A simple shortcut that does all the heavy lifting for you.</p>
           </div>
 
-          <div class="mt-8 grid gap-4 sm:grid-cols-3">
-            <article class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-surface-dark">
-              <p class="text-2xl font-bold">2.4x</p>
-              <p class="text-sm text-muted-light dark:text-muted-dark">faster multilingual replies</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+              <div class="mb-6 flex flex-1 items-center justify-center gap-5 px-2 py-6">
+                <div class="min-w-0 flex-1 rounded-lg border border-gray-200/60 bg-white/80 px-4 py-2.5 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <div class="flex min-h-[1.25rem] items-center text-[14px] text-text-light dark:text-text-dark">
+                    <span id="bento-text" class="whitespace-nowrap rounded-[3px] px-0.5">Hola, como estas?</span>
+                    <span id="bento-cursor" class="ml-px inline-block h-[14px] w-[1.5px] animate-pulse bg-text-light/60 dark:bg-text-dark/60"></span>
+                  </div>
+                </div>
+                <div class="flex shrink-0 items-center gap-1.5">
+                  <span id="bento-key-cmd" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200/80 bg-gradient-to-b from-white to-gray-50 font-mono text-lg font-semibold text-gray-600 shadow-[0_3px_0_0_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)]">⌘</span>
+                  <span id="bento-key-shift" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200/80 bg-gradient-to-b from-white to-gray-50 font-mono text-2xl font-semibold text-gray-600 shadow-[0_3px_0_0_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)]">⇧</span>
+                  <span id="bento-key-v" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200/80 bg-gradient-to-b from-white to-gray-50 font-mono text-lg font-semibold text-gray-600 shadow-[0_3px_0_0_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)]">V</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">One shortcut</h3>
+              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Press CMD+SHIFT+V and the translation auto-pastes where you are typing. No extra steps.</p>
             </article>
-            <article class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-surface-dark">
-              <p class="text-2xl font-bold">11 hrs</p>
-              <p class="text-sm text-muted-light dark:text-muted-dark">saved per team/month</p>
+
+            <article class="relative flex h-[240px] flex-col overflow-hidden rounded-3xl bg-primary/5">
+              <div class="p-6 pb-2">
+                <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Works everywhere</h3>
+                <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Slack, WhatsApp, browser, email, docs and social apps.</p>
+              </div>
+              <div class="relative flex flex-1 items-center overflow-hidden">
+                <div class="bento-marquee flex w-max gap-5 px-6">
+                  <span class="material-icons text-4xl text-gray-500">forum</span>
+                  <span class="material-icons text-4xl text-gray-500">mail</span>
+                  <span class="material-icons text-4xl text-gray-500">description</span>
+                  <span class="material-icons text-4xl text-gray-500">code</span>
+                  <span class="material-icons text-4xl text-gray-500">brush</span>
+                  <span class="material-icons text-4xl text-gray-500">chat_bubble</span>
+                  <span class="material-icons text-4xl text-gray-500">language</span>
+                  <span class="material-icons text-4xl text-gray-500">work</span>
+                  <span class="material-icons text-4xl text-gray-500">public</span>
+                  <span class="material-icons text-4xl text-gray-500">forum</span>
+                  <span class="material-icons text-4xl text-gray-500">mail</span>
+                  <span class="material-icons text-4xl text-gray-500">description</span>
+                </div>
+                <div class="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-primary/5 to-transparent"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-primary/5 to-transparent"></div>
+              </div>
             </article>
-            <article class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-surface-dark">
-              <p class="text-2xl font-bold">95%</p>
-              <p class="text-sm text-muted-light dark:text-muted-dark">users active after week 1</p>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-3">
+            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+              <div class="mb-4 flex flex-1 items-center">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Hello</span>
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Hola</span>
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Bonjour</span>
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Ciao</span>
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Hallo</span>
+                  <span class="inline-block rounded-full border border-gray-100/60 bg-white/80 px-2.5 py-1 text-xs font-medium text-text-light dark:border-white/10 dark:bg-white/10 dark:text-text-dark">Ola</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Any language</h3>
+              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Auto-detects the source language. You choose where it goes.</p>
+            </article>
+
+            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+              <div class="mb-4 flex flex-1 items-center justify-center py-4">
+                <div class="w-full max-w-[240px] overflow-hidden rounded-xl border border-gray-200/60 bg-white/90 shadow-sm dark:border-white/10 dark:bg-white/10">
+                  <div class="flex items-center gap-2 border-b border-gray-100 px-3 py-2 dark:border-white/10">
+                    <span class="material-icons text-sm text-gray-400">tune</span>
+                    <span class="text-xs font-medium text-text-light dark:text-text-dark">Tone</span>
+                  </div>
+                  <div class="grid grid-cols-4 gap-1 p-1.5">
+                    <div class="flex flex-col items-center gap-1 rounded-lg px-1 py-2"><span class="material-icons text-base text-gray-500">auto_awesome</span><span class="text-[9px]">Orig</span></div>
+                    <div class="flex flex-col items-center gap-1 rounded-lg bg-primary/10 px-1 py-2"><span class="material-icons text-base text-primary">business_center</span><span class="text-[9px] text-primary">Formal</span></div>
+                    <div class="flex flex-col items-center gap-1 rounded-lg px-1 py-2"><span class="material-icons text-base text-gray-500">emoji_emotions</span><span class="text-[9px]">Casual</span></div>
+                    <div class="flex flex-col items-center gap-1 rounded-lg px-1 py-2"><span class="material-icons text-base text-gray-500">short_text</span><span class="text-[9px]">Brief</span></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Custom tone</h3>
+              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Set it to professional, casual, or write your own style.</p>
+            </article>
+
+            <article class="flex flex-col rounded-3xl bg-primary/5 p-6">
+              <div class="mb-4 flex flex-1 flex-col items-center justify-center gap-6 py-6">
+                <div class="relative h-20 w-24">
+                  <div class="absolute left-0 top-1 grid h-14 w-14 place-items-center rounded-xl bg-white shadow-lg text-primary">AI</div>
+                  <div class="absolute bottom-1 right-0 grid h-14 w-14 place-items-center rounded-xl bg-white shadow-lg text-primary">LLM</div>
+                </div>
+                <div class="w-full rounded-lg border border-gray-200/60 bg-white/80 px-3 py-1 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <span class="font-mono text-[14px] tracking-tight text-muted-light/70 dark:text-muted-dark/70">sk-proj-4f8a...Tg3xW</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Your API key</h3>
+              <p class="mt-1 text-sm text-muted-light dark:text-muted-dark">Bring your own API key. Your texts never touch our servers.</p>
             </article>
           </div>
         </div>
@@ -490,41 +580,6 @@
         </div>
       </section>
 
-      <section id="features" class="bg-gray-50 py-24 dark:bg-black/20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="mb-16 text-center">
-            <h2 class="mb-4 font-serif text-3xl md:text-4xl">Everything a modern SaaS user expects</h2>
-            <p class="text-muted-light dark:text-muted-dark">Clear value, instant setup, privacy-first architecture.</p>
-          </div>
-
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">One shortcut</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">Press CMD+SHIFT+V and translation auto-pastes where you are typing.</p>
-            </article>
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">Works everywhere</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">Slack, WhatsApp, browser, docs and email clients.</p>
-            </article>
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">Any language</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">Auto-detect source language and translate to your chosen output.</p>
-            </article>
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">Custom tone</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">Professional, casual, concise, or fully custom instruction presets.</p>
-            </article>
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">Bring your API key</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">Use OpenAI or compatible providers with your own credentials.</p>
-            </article>
-            <article class="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-primary/30 dark:border-white/5 dark:bg-surface-dark">
-              <h3 class="mb-2 text-lg font-bold">Privacy first</h3>
-              <p class="text-sm text-muted-light dark:text-muted-dark">No keystroke logging. Data stays between your Mac and provider.</p>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section id="pricing" class="py-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -813,9 +868,52 @@
         }
       }
 
+      async function runBentoShortcutAnimation() {
+        const bentoText = document.getElementById("bento-text");
+        const bentoCursor = document.getElementById("bento-cursor");
+        const keyCmd = document.getElementById("bento-key-cmd");
+        const keyShift = document.getElementById("bento-key-shift");
+        const keyV = document.getElementById("bento-key-v");
+        if (!bentoText || !bentoCursor || !keyCmd || !keyShift || !keyV) return;
+
+        while (true) {
+          bentoText.textContent = "Hola, como estas?";
+          bentoText.style.backgroundColor = "transparent";
+          bentoCursor.style.opacity = "1";
+          [keyCmd, keyShift, keyV].forEach((k) => {
+            k.style.transform = "translateY(0)";
+            k.style.boxShadow =
+              "0 3px 0 0 rgba(0,0,0,0.08),0 2px 4px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.9)";
+          });
+
+          await sleep(1200);
+
+          bentoText.style.backgroundColor = "rgba(59, 130, 246, 0.15)";
+          bentoCursor.style.opacity = "0";
+
+          [keyCmd, keyShift, keyV].forEach((k, i) => {
+            setTimeout(() => {
+              k.style.transform = "translateY(1px)";
+              k.style.boxShadow =
+                "0 1px 0 0 rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.9)";
+            }, i * 80);
+          });
+
+          await sleep(450);
+          bentoText.textContent = "Hi, how are you?";
+          bentoText.style.backgroundColor = "transparent";
+          [keyCmd, keyShift, keyV].forEach((k) => {
+            k.style.transform = "translateY(0)";
+          });
+
+          await sleep(2200);
+        }
+      }
+
       runSlackAnimation();
       runWhatsAppAnimation();
       runEmailAnimation();
+      runBentoShortcutAnimation();
     </script>
   </body>
 </html>
